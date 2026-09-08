@@ -25,7 +25,7 @@ export default function Navbar() {
         </a>
 
         <a
-          href="/cv.pdf"
+          href="../../assets/CV/cv.pdf"
           download
           className="hidden shrink-0 rounded-lg bg-[#8226d3] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#6d06ce] sm:inline-block"
         >
@@ -83,7 +83,7 @@ export default function Navbar() {
           <div className="mt-4 flex items-center justify-between">
             <ThemeToggle />
             <a
-              href="/cv.pdf"
+              href="../../assets/CV/Sahar Shirazi-CV.pdf"
               download
               className="rounded-lg bg-[#8226d3] px-4 py-2 text-sm font-medium text-white"
             >

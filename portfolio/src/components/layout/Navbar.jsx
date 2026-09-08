@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import ThemeToggle from '../ui/ThemeToggle'
 import { useScrollSpy } from '../../hooks/useScrollSpy'
+import cvFile from '../../assets/CV/Sahar Shirazi-CV.pdf'
 
 const LINKS = [
   { id: 'about', label: 'About' },
@@ -25,7 +26,7 @@ export default function Navbar() {
         </a>
 
         <a
-          href="../../assets/CV/Sahar Shirazi-CV.pdf"
+          href={cvFile}
           download
           className="hidden shrink-0 rounded-lg bg-[#8226d3] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#6d06ce] sm:inline-block"
         >
@@ -83,7 +84,7 @@ export default function Navbar() {
           <div className="mt-4 flex items-center justify-between">
             <ThemeToggle />
             <a
-              href="../../assets/CV/Sahar Shirazi-CV.pdf"
+              href={cvFile}
               download
               className="rounded-lg bg-[#8226d3] px-4 py-2 text-sm font-medium text-white"
             >

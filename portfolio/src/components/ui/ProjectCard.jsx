@@ -1,9 +1,36 @@
+import { useEffect, useState } from 'react'
+
 export default function ProjectCard({ title, type, description, tech, image, link }) {
+  const [isOpen, setIsOpen] = useState(false)
+
+  useEffect(() => {
+    if (!isOpen) return
+
+    const handleKey = (event) => {
+      if (event.key === 'Escape') setIsOpen(false)
+    }
+
+    window.addEventListener('keydown', handleKey)
+    return () => window.removeEventListener('keydown', handleKey)
+  }, [isOpen])
+
   return (
+    <>
     <div className="overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-slate-200 dark:bg-slate-800 dark:ring-slate-700">
       <div className="flex h-40 items-center justify-center">
         {image ? (
-          <img src={image} alt={title} className="h-full w-full object-cover" />
+          <button
+            type="button"
+            onClick={() => setIsOpen(true)}
+            aria-label={`View ${title} image full size`}
+            className="block h-full w-full cursor-zoom-in overflow-hidden"
+          >
+            <img
+              src={image}
+              alt={title}
+              className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
+            />
+          </button>
         ) : (
           <span className="text-2xl font-semibold text-white/90">{title}</span>
         )}
@@ -45,5 +72,31 @@ export default function ProjectCard({ title, type, description, tech, image, lin
         </div>
       </div>
     </div>
+
+    {isOpen && (
+      <div
+        className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-4"
+        onClick={() => setIsOpen(false)}
+      >
+        <button
+          type="button"
+          onClick={() => setIsOpen(false)}
+          aria-label="Close"
+          className="absolute right-5 top-5 text-white/70 transition-colors hover:text-white"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-8 w-8">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
+          </svg>
+        </button>
+
+        <img
+          src={image}
+          alt={title}
+          onClick={(event) => event.stopPropagation()}
+          className="max-h-[85vh] max-w-[90vw] rounded-lg object-contain shadow-2xl"
+        />
+      </div>
+    )}
+    </>
   )
 }

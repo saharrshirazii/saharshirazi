@@ -11,8 +11,7 @@ export const projects = [
     description: 'A lightweight ATS built for a real hiring assignment: recruiters post jobs, add candidates, and track them through a pipeline on a compact Kanban board. Includes role-based access (admin vs. customer), and an AI-powered CV assessment feature that scores a candidate’s fit against a job using Claude.',
     tech: ['React', 'TypeScript', 'Vite',  'Tailwind CSS','Supabase (database)', 'react-hook-form', 'zod','dnd-kit (drag and drop)','Claude API','Vercel (hosting)'],
     image: miniATSImg,
-    link: 'https://mini-ats-three.vercel.app/',
-    github: 'https://github.com/saharshirazii/MiniATS'
+    link: 'https://github.com/saharshirazii/MiniATS'
   },
   {
     title: 'Book me',
